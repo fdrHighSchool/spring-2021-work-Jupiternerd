@@ -1,8 +1,9 @@
 
 public class Main {
     public static void main(String[] args) {
-
-        SuperArray arr = new SuperArray();
+        String[] myStringArray;
+        myStringArray = new String[]{"a", "b", "c"};
+        SuperArray arr = new SuperArray(myStringArray);
         //System.out.println(arr.length);
 
         arr.grow(5);
