@@ -1,7 +1,7 @@
 # FDR High School - AP CS A
 
-## Last Name:  
-## First Name: 
+## Last Name: Hlaing
+## First Name: Wai
 ## GitHub Username: 
 
 
