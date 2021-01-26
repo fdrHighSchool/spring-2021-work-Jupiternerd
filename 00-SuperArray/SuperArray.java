@@ -1,12 +1,31 @@
+
+
 /**
  *  @author : Wai Hlaing
  * 
  */
+class Data {
+  public Object value;
 
+  public Data(Object value) {
+    this.value = value;
+
+  }
+
+  public Data() {
+    this.value = null;
+  }
+
+  public Object getData() {
+
+    return this.value;
+
+  }
+}
 
 public class SuperArray {
     public int length;
-    private String[] arr;
+    private Data[] arr;
 
      /***
      * @Name | SuperArray(int arrlength)
@@ -17,8 +36,12 @@ public class SuperArray {
 
     public SuperArray(int arrLength) {
       this.length = arrLength;
-      this.arr = new String[arrLength];
-      
+      this.arr = new Data[arrLength];
+      for (Object stuff : this.arr ) {
+        System.out.println(stuff);
+      }
+      //System.out.println(this.arr.toString());
+
     }
 
      /***
@@ -32,35 +55,24 @@ public class SuperArray {
 
     }
 
-     /***
-     * @name | SuperArray()
-     * @purpose | Make a new super array, But takes in your weak old previous array and rebrands it with our own SuperArray tm.
-     * @return new SuperArray
-     */
-
-    public SuperArray(String[] pastArr) {
-      this.arr = pastArr;
-      this.length = pastArr.length;
-
-    }
-
      /**
      * @name | grow(int size)
      * @purpose | grow this array to a certain size (adding old array with new int size)
-     * @return nothing
+     * @return new arr
      */
 
-    public void grow(int size) {
+    public Data[] grow(int size) {
       this.length = this.length + size;
-      String[] temp = new String[this.length];
+      Data[] temp = new Data[this.length];
 
       int i = 0;
-      for ( String elements : arr) {
+      for ( Data elements : arr) {
         temp[i] = elements;
         i++;
 
       }
       this.arr = temp;
+      return this.arr;
 
     }
 
@@ -92,7 +104,7 @@ public class SuperArray {
     public boolean isEmpty(int index) {
       boolean flag = false;
 
-      if (this.arr[index] == null) flag = true;
+      if (this.arr[index].value == null) flag = true;
       return flag;
 
     }
@@ -107,14 +119,14 @@ public class SuperArray {
       //if (isEmpty()) return "Your SuperArray(tm) is Empty!"; Stupid idea
       String str = "[";
       int i = 0;
-      for (String elements : this.arr) {
+      for (Data elements : this.arr) {
         //loop through all the elements
         
         if (i >= this.length - 1) { 
-          str += elements + "]"; 
+          str += elements.value + "]"; 
           break;
         }
-        str += (isEmpty(i) ? elements : '\"' + elements + '\"') + ", "; //if this spot is empty then we dont apply the " " onto the element 
+        str += (isEmpty(i) ? elements.value : '\"' + elements.value.toString()+ '\"') + ", "; //if this spot is empty then we dont apply the " " onto the element 
         i++;
         
       }
