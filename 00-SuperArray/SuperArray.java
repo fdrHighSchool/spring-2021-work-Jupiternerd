@@ -125,7 +125,7 @@ public class SuperArray {
     }
 
     public void add(String val) {
-      add(this.length, )
+      add(this.length, val);
 
     }
 
@@ -133,8 +133,8 @@ public class SuperArray {
 
     }
 
-    public void append() {
-      add();
+    public void append(String val) {
+      add(val);
     }
 
     public void set(int index, String value) {
