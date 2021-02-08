@@ -298,6 +298,26 @@ public class SuperArray {
     public void pop() {
       remove(this.length);
     }
+    /**
+     * @name | get(int index)
+     * @purpose | get back a specific index of an array
+     * @param index | 
+     * @return
+     */
+
+    public String get(int index) {
+      return this.arr[index];
+
+    }
+    /**
+     * @name | get()
+     * @purpose | get back the whole array
+     * @return
+     */
+
+    public String[] get() {
+      return this.arr;
+    }
 
 
     
