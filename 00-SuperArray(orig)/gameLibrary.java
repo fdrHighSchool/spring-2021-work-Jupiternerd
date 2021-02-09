@@ -9,6 +9,7 @@ public class gameLibrary {
        String[] list = new String[]{"Portal", "CSGO", "Tf2"};
        this.gameList = new SuperArray(list);
        this.gameScore = new SuperArray(gameList.length);
+
         
    }
    /**
@@ -58,7 +59,11 @@ public class gameLibrary {
      */
 
     public void add_game(String... games){
-        for (String game : games) this.gameList.add(game);
+        for (String game : games) {
+            this.gameList.add(game);
+            this.gameList.grow(1);
+        }
+        
 
     }
 

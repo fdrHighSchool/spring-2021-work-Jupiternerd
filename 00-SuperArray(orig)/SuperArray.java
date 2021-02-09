@@ -93,15 +93,13 @@ public class SuperArray {
      */
 
     public boolean isEmpty() {
-      boolean flag = false;
       if (this.length == 0) return true;
 
       for(int i = 0; i < this.length; i++) {
-        flag = isEmpty(i);
-        if (flag == true) break; 
+        if (isEmpty(i)) return true;
 
       }
-      return flag;
+      return false;
       
     }
 
@@ -155,6 +153,7 @@ public class SuperArray {
 
     public void add(String... val) {
       add(this.length - 1, val);
+      
 
     }
 
@@ -164,11 +163,31 @@ public class SuperArray {
      * @return nothing
      */
 
-    public void add(int index, String... value) {
+    public void add(int index, String... value) { // add "uno" after index 0 ["1", "2", "3"]
       if (index > this.length - 1) throw new IndexOutOfBoundsException("(SuperArray | add) Index out of bound : " + index);
+      /* 
+      grow(value.length); //we grow the arr like ["1", "2", "3", null]
+      for (int i = this.length - 1; i > index; i--) {
+        this.arr[i] = this.arr[i - 1];
+        System.out.println(this.arr[i]);
+        System.out.println(this.arr[i - 1]);
+
+      }
+
+      for (String values : value) {
+        this.arr[index] = values;
+        index++;
+      }
+      */
+
+    
       this.length = this.length + value.length;
+      
+      
       String[] temp = new String[this.length]; //length of the amount of value we are going to stuff in.
       //System.out.println(temp.length);
+
+      
 
       int toIndex = index + 1; //this is to find the spot where our new set of values will live. so if..
       /**
@@ -184,8 +203,8 @@ public class SuperArray {
        * 
        * we need to preserve two but if the index to overwrite is the original index, the loop will just overwrite index 1 which is "two".
        * 
-       * 
        */
+       
       int i = 0, z = 0; 
       while (i < temp.length - 1) {
         if (toIndex == i){ //if this is the index where to push in all the values
@@ -218,6 +237,7 @@ public class SuperArray {
       this.arr = temp;
       
       //System.out.println(temp[4]);
+      
       
       
 
