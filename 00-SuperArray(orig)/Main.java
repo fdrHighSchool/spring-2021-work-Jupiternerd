@@ -4,7 +4,7 @@ public class Main {
         String[] myStringArray;
         myStringArray = new String[]{"one", "two", "three"};
         SuperArray arr = new SuperArray(myStringArray);
-        arr.add("four", "five");
+        arr.add(2, "four", "five");
         System.out.println(arr);
 
 

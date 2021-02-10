@@ -152,7 +152,7 @@ public class SuperArray {
      */
 
     public void add(String... val) {
-      add(this.length - 1, val);
+      append(val);
       
 
     }
@@ -164,81 +164,30 @@ public class SuperArray {
      */
 
     public void add(int index, String... value) { // add "uno" after index 0 ["1", "2", "3"]
-      if (index > this.length - 1) throw new IndexOutOfBoundsException("(SuperArray | add) Index out of bound : " + index);
-      /* 
-      grow(value.length); //we grow the arr like ["1", "2", "3", null]
-      for (int i = this.length - 1; i > index; i--) {
-        this.arr[i] = this.arr[i - 1];
-        System.out.println(this.arr[i]);
-        System.out.println(this.arr[i - 1]);
-
-      }
-
-      for (String values : value) {
-        this.arr[index] = values;
-        index++;
-      }
-      */
-
-    
-      this.length = this.length + value.length;
+      //if (index > this.length - 1) throw new IndexOutOfBoundsException("(SuperArray | add) Index out of bound : " + index);
+      
+      grow(value.length);
       
       
-      String[] temp = new String[this.length]; //length of the amount of value we are going to stuff in.
-      //System.out.println(temp.length);
-
       
+      for (int i = this.arr.length - 1; i > index; i--) { 
 
-      int toIndex = index + 1; //this is to find the spot where our new set of values will live. so if..
-      /**
-       * ["one", "two", "three"], we want to add "uno" and "dos" after "two" so..
-       *   (0)    (1)     (2)
-       * : superarr.add(1, "uno", "dos");
-       * 
-       * we make new temp arr with length of previous int length value (3) and the amount of value we have (2)
-       * [null, null, null, null, null]
-       *         x     *
-       * we loop through one by one, until we hit the third one, if we only had the index (see x) to go off of we will be overwriting it with it's
-       * original value of "two". the (*) is what we want so we can add.
-       * 
-       * we need to preserve two but if the index to overwrite is the original index, the loop will just overwrite index 1 which is "two".
-       * 
-       */
-       
-      int i = 0, z = 0; 
-      while (i < temp.length - 1) {
-        if (toIndex == i){ //if this is the index where to push in all the values
-          for (String elements : value) {
-            // loops through each value in the string[] we get from the arguments..
-
-            //System.out.println("X adding values : " + elements + " at this value " + i);
-            temp[i] = elements; 
-            //System.out.println(temp[i]);
-            
-            i++;
-
-          }
-          
-
-        } else { // if it is not then we just keep copying on.
-          //System.out.println("adding values : " + this.arr[z] + " at this value " + i);
-          //System.out.println(z + " z");
-          //System.out.println(i + " i");
-          temp[i] = this.arr[z];
-          
-          //System.out.println(temp[i]);
-          i++;
-          z++;
-          
-        }
+        //System.out.println(this.arr[i]);
+        System.out.println(i);
+        this.arr[i] = this.arr[(i - value.length < 0 ? 0 : i - value.length)]; //O M GGGGGGGGGG Finalyl did it
         
+        //System.out.println(value.length);
+
+
       }
-      
-      this.arr = temp;
-      
-      //System.out.println(temp[4]);
-      
-      
+      //System.out.println(" | "+ toString());
+      //System.out.println(index);
+      for (String elements : value) {
+        this.arr[index] = elements;
+        index++;
+
+
+      }
       
 
 
@@ -252,7 +201,7 @@ public class SuperArray {
      */
 
     public void append(String... val) {
-      add(this.length - 1, val);
+      add(this.length, val);
     }
 
      /***
