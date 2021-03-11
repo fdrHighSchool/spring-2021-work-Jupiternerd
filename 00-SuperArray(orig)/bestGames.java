@@ -12,7 +12,7 @@ public class bestGames {
         System.out.println(steamGames.toString() + "  | 2 | I hate league, so I remove it from my game library.\n");
 
         //I gain a bundle of games that I got from valve, the orange box. (Includes hl2, portal2 and tf2)
-        steamGames.append("Half Life 2", "Pertal 2", "Team Fortress 2");
+        steamGames.add("Half Life 2", "Pertal 2", "Team Fortress 2");
         System.out.println(steamGames.toString() + "  | 3 | I gain a bundle of games that I got from valve, the orange box. (Includes hl2, portal2 and tf2)\n");
         
         //turns out "pertal 2" wasn't the actual name so we will have to rename it ourselves.

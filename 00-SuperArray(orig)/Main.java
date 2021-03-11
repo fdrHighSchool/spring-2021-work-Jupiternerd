@@ -4,13 +4,9 @@ public class Main {
         String[] myStringArray;
         myStringArray = new String[]{"one", "two", "three"};
         SuperArray arr = new SuperArray(myStringArray);
-        
+        arr.add(2, "four", "five");
+        System.out.println(arr);
 
-
-        //arr.grow(5);
-        System.out.println(arr.toString());
-        arr.append("dos", "tres");
-        System.out.println(arr.toString());
 
         //System.out.println(arr.toString());
         //System.out.println(arr.length);
