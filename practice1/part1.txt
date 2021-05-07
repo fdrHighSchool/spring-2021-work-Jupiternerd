@@ -1,0 +1,15 @@
+recombine(word1, word2) {
+    # get length of both words and / 2 to get mid way point.
+    int wL1 = word1.length() / 2;
+    int wL2 = word2.length() / 2;
+    
+    # with the mid way point we halve the first word from 0 to the mid point.
+    # The second word: from the midway point to the final length of the word (end of word).
+    String operatedOne = word1.substring(0, wL1);
+    String operatedTwo = word2.substring(wL2, word2.length());
+
+    # returns the operatedOne + operatedTwo
+    return operatedOne.concat(operatedTwo);
+    
+
+}
